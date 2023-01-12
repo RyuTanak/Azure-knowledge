@@ -24,3 +24,14 @@ https://azure.microsoft.com/ja-jp/pricing/calculator/
 
 かなり細かく見積もりをすることができる。  
 
+## IoT研修（AWS編）をAzureでやってみる。  
+
+AWSで使用していたサービスは、「IoT core」「DynamoDB」「Lambda」「EC2」「VPN」  
+これらのサービスをAzureではどのようになるか、以下に示す。  
+ 
+「IoT core」→「IoT Hub」  
+「DynamoDB」→「Auzre Cosmos DB」  
+
+## 「IoT Hub」  
+
+https://qiita.com/linyixian/items/0795ff2ab038ea0a3517
