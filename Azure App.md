@@ -81,6 +81,8 @@ vscodeで先ほど保持したURLへPOSTを行うと、VMが開始される。
 
 このRunbookの画面からどう運用するかを設定し（GUIのみ）  
 そのRunbookのトリガーとなるWebhookやスケジュールを設定することができる。  
-(Runbookの設定方法が不明)  
+
+→VMWareの起動が出来ない。  
+ acountassetというものが取得できない。  
 
 
