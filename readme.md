@@ -8,6 +8,27 @@
 - 東にはあるが、西にはないサービスがある。みたいに、どちらかにしかないサービスがある。  
 - 東西でサービスの価格が異なる場合がある。  
 
+## 勉強したいサービス  
+- Azure Service Catalog Based Application  
+- Azure Backup  
+- Azure Update Management  
+- Azure Plolicy
+- Powershell / Azure Powershell  
+
+〇Azure DevOps  
+   - Repo  
+   - Pipeline
+
+〇アプリケーション実行基盤  
+   - Azure Logic Apps  
+   - Azure Functions  
+   - Azure Automation  
+ 
+〇Azure Monitor  
+  - Application Insights  
+  - Log Analytics  
+  - Azure Monitor Metric  
+
 ## 無料アカウントの作成  
 
 Microsoftアカウントを使用する。  
@@ -31,6 +52,8 @@ AWSで使用していたサービスは、「IoT core」「DynamoDB」「Lambda�
  
 「IoT core」→「IoT Hub」  
 「DynamoDB」→「Auzre Cosmos DB」  
+「Lambda」→「Azure Functions」  
+「EC2」→「Virtual Machines」  
 
 ## 「IoT Hub」  
 
