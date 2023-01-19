@@ -53,13 +53,45 @@ Set-AzStorageBlobContent `
   -Context $ctx
 ```
 
+Locationは「japaneast」でも「JapanEast」でもいける  
+
 ## マネージドアプリケーション定義の作成  
 
 引用：  
 このセクションでは、Azure Active Directory から ID 情報を取得し、リソース グループを作成して、マネージド アプリケーション定義を作成します。  
 
+### Azure Active Directory ユーザー グループまたはアプリケーションの作成  
 ```
 $groupID=(Get-AzADGroup -DisplayName ksaplabo-org).Id
 ```
+↑グループ名「ksaplabo-org」を入れる  
+
+### ロール定義 ID の取得  
+```
+$roleid=(Get-AzRoleDefinition -Name Owner).Id
+```
+
+### マネージドアプリケーション定義の作成  
+```
+New-AzResourceGroup -Name appDefinitionGroup -Location japaneast
+```
+
+```
+$blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
+
+New-AzManagedApplicationDefinition `
+  -Name "ManagedStorage" `
+  -Location "JapanEast" `
+  -ResourceGroupName appDefinitionGroup `
+  -LockLevel ReadOnly `
+  -DisplayName "Managed Storage Account" `
+  -Description "Managed Azure Storage Account" `
+  -Authorization "${groupID}:$roleid" `
+  -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
+```
+
+appcontainerというコンテナができる  
+一応これでマネージドアプリケーション画面から、JSONで定義したストレージ作成が行える  
+
 
 
