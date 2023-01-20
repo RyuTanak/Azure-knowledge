@@ -1,0 +1,98 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+        "basics": [
+            {}
+        ],
+        "steps": [
+            {
+                "name": "vmconfig",
+                "label": "VM作成 簡易版",
+                "elements": [
+                    {
+                        "name": "textBox1",
+                        "type": "Microsoft.Common.TextBox",
+                        "label": "VMの名前",
+                        "placeholder": "",
+                        "defaultValue": "vm-xxxx-xxx",
+                        "toolTip": "Use only allowed characters",
+                        "constraints": {
+                            "required": true,
+                            "regex": "^[a-z0-9A-Z]{1,30}$",
+                            "validationMessage": "Only alphanumeric characters are allowed, and the value must be 1-30 characters long."
+                        },
+                        "visible": true
+                    }
+                ]
+            }
+        ],
+        "outputs": {
+            "location": "japaneast",
+            "networkInterfaceName": "e-iaas-vm-01673",
+            "networkSecurityGroupName": "e-iaas-vm-01-nsg",
+            "networkSecurityGroupRules": [],
+            "subnetName": "default",
+            "virtualNetworkName": "e-iaas-rg-vnet",
+            "addressPrefixes": {
+                "value": [
+                    "10.0.0.0/16"
+                ]
+            },
+            "subnets": {
+                "value": [
+                    {
+                        "name": "default",
+                        "properties": {
+                            "addressPrefix": "10.0.0.0/24"
+                        }
+                    }
+                ]
+            },
+            "publicIpAddressName": {
+                "value": "e-iaas-vm-01-ip"
+            },
+            "publicIpAddressType": {
+                "value": "Static"
+            },
+            "publicIpAddressSku": {
+                "value": "Standard"
+            },
+            "pipDeleteOption": {
+                "value": "Delete"
+            },
+            "virtualMachineComputerName": {
+                "value": "e-iaas-vm-01"
+            },
+            "virtualMachineRG": {
+                "value": "e-iaas-rg"
+            },
+            "osDiskType": {
+                "value": "Standard_LRS"
+            },
+            "osDiskDeleteOption": {
+                "value": "Delete"
+            },
+            "virtualMachineSize": {
+                "value": "Standard_B1s"
+            },
+            "nicDeleteOption": {
+                "value": "Delete"
+            },
+            "adminUsername": {
+                "value": "rtanaka"
+            },
+            "adminPassword": {
+                "value": null
+            },
+            "patchMode": {
+                "value": "AutomaticByOS"
+            },
+            "enableHotpatching": {
+                "value": false
+            },
+            "virtualMachineName": "[steps('vmconfig').textBox1.prefix]"
+        }
+    }
+}

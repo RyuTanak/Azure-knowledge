@@ -36,5 +36,16 @@ resources部分の説明
 「"type": "Microsoft.Storage/storageAccounts"」この部分は、リファレンス曰く  
 「リソースプロパイダーの名前空間とリソースの種類を組み合わせたもの」と記載されている。  
 
-createUiDefinition.jsonを作るときに参考になりそうな[リファレンス](https://portal.azure.com/?feature.customPortal=false#view/Microsoft_Azure_CreateUIDef/SandboxBlade)  
+### createUiDefinition.json
+
+リファレンスは[こちら](https://learn.microsoft.com/ja-jp/azure/azure-resource-manager/managed-applications/create-uidefinition-elements)  
+
+createUiDefinition.jsonを作るときに参考になりそうな[Azure機能](https://portal.azure.com/?feature.customPortal=false#view/Microsoft_Azure_CreateUIDef/SandboxBlade)  
+
+Virtual Machinのリソース部分の書き方は[こちら](https://learn.microsoft.com/ja-jp/azure/templates/microsoft.compute/2022-08-01/virtualmachinescalesets/virtualmachines?pivots=deployment-language-arm-template)  
+
+
+
+
+
 
