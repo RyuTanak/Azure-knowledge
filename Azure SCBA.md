@@ -54,6 +54,7 @@ Set-AzStorageBlobContent `
 ```
 
 Locationは「japaneast」でも「JapanEast」でもいける  
+app.zipはフォルダを圧縮しないで、ファイルを圧縮すること。（のちにエラーになります）  
 
 ## マネージドアプリケーション定義の作成  
 
