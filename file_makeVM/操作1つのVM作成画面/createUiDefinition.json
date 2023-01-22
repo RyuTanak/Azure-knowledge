@@ -29,69 +29,35 @@
             }
         ],
         "outputs": {
-            "location": "japaneast",
+            "location": "[location()]",
             "networkInterfaceName": "e-iaas-vm-01673",
-            "networkSecurityGroupName": "e-iaas-vm-01-nsg",
+            "networkSecurityGroupName":  "e-iaas-vm-01-nsg",
             "networkSecurityGroupRules": [],
             "subnetName": "default",
             "virtualNetworkName": "e-iaas-rg-vnet",
-            "addressPrefixes": {
-                "value": [
-                    "10.0.0.0/16"
-                ]
-            },
-            "subnets": {
-                "value": [
+            "addressPrefixes": ["10.0.0.0/16"],
+            "subnets":  [
                     {
                         "name": "default",
                         "properties": {
                             "addressPrefix": "10.0.0.0/24"
                         }
                     }
-                ]
-            },
-            "publicIpAddressName": {
-                "value": "e-iaas-vm-01-ip"
-            },
-            "publicIpAddressType": {
-                "value": "Static"
-            },
-            "publicIpAddressSku": {
-                "value": "Standard"
-            },
-            "pipDeleteOption": {
-                "value": "Delete"
-            },
-            "virtualMachineComputerName": {
-                "value": "e-iaas-vm-01"
-            },
-            "virtualMachineRG": {
-                "value": "e-iaas-rg"
-            },
-            "osDiskType": {
-                "value": "Standard_LRS"
-            },
-            "osDiskDeleteOption": {
-                "value": "Delete"
-            },
-            "virtualMachineSize": {
-                "value": "Standard_B1s"
-            },
-            "nicDeleteOption": {
-                "value": "Delete"
-            },
-            "adminUsername": {
-                "value": "rtanaka"
-            },
-            "adminPassword": {
-                "value": null
-            },
-            "patchMode": {
-                "value": "AutomaticByOS"
-            },
-            "enableHotpatching": {
-                "value": false
-            },
+                ],
+            "publicIpAddressName": "e-iaas-vm-01-ip",
+            "publicIpAddressType": "Static",
+            "publicIpAddressSku": "Standard",
+            "pipDeleteOption": "Delete",
+            "virtualMachineComputerName": "e-iaas-vm-01",
+            "virtualMachineRG": "e-iaas-rg",
+            "osDiskType": "Standard_LRS",
+            "osDiskDeleteOption": "Delete",
+            "virtualMachineSize": "Standard_B1s",
+            "nicDeleteOption": "Delete",
+            "adminUsername": "rtanaka",
+            "adminPassword": "",
+            "patchMode": "AutomaticByOS",
+            "enableHotpatching": false,
             "virtualMachineName": "[steps('vmconfig').textBox1.prefix]"
         }
     }
