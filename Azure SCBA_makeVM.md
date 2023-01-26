@@ -58,6 +58,10 @@ createUiDefinition.jsonを作るときに参考になりそうな[Azure機能](h
 
 Virtual Machinのリソース部分の書き方は[こちら](https://learn.microsoft.com/ja-jp/azure/templates/microsoft.compute/2022-08-01/virtualmachinescalesets/virtualmachines?pivots=deployment-language-arm-template)  
 
+ひとまずVMの名前だけを設定して、VM作成が行えるUIの作成は出来た。  
+[mainTemplate.json](./file_makeVM/%E6%93%8D%E4%BD%9C1%E3%81%A4%E3%81%AEVM%E4%BD%9C%E6%88%90%E7%94%BB%E9%9D%A2/mainTemplate.json)  
+[createUiDefinition.json](./file_makeVM/%E6%93%8D%E4%BD%9C1%E3%81%A4%E3%81%AEVM%E4%BD%9C%E6%88%90%E7%94%BB%E9%9D%A2/createUiDefinition.json)  
+
 
 
 

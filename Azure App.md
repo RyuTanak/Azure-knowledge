@@ -84,5 +84,3 @@ vscodeで先ほど保持したURLへPOSTを行うと、VMが開始される。
 
 →VMWareの起動が出来ない。  
  acountassetというものが取得できない。  
-
-
