@@ -65,12 +65,15 @@ Virtual Machinのリソース部分の書き方は[こちら](https://learn.micr
 
 # VMを2台作成して、ElasticsearchとFilebeatを連携させる  
 
-## 習得しる技術要素  
+## 習得する技術要素  
 
 1. VM作成時にElasticsearch等をインストールする方法  
 2. VM作成画面で2つのVMを立ち上げる方法  
 
 ## 1. VM作成時にElasticsearch等をインストールする方法  
+
+☆ヒントになりそうなサイト  
+https://www.tama-negi.com/2021/12/26/azure-vm-custom-data/  
 
 外部からssh接続できるLinuxコンピュータを起動する。  
 ![image](./image/29.png)  
