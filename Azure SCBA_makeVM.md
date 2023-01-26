@@ -90,4 +90,99 @@ sudo apt-get update && sudo apt-get install filebeat
 ```
 これをVM作成時に自動で実行できるようにするためには...  
 
+まず、☆参考サイトにある通り、timezoneとlocaleの設定を行ってみる。  
+VM作成時、カスタムデータの欄に以下のように入力する。  
+```
+#cloud-config
+timezone: Asia/Tokyo
+locale: ja_JP.utf8
+```
+入力後、VMの設定を確認すると、上記で設定した通りになっているのがわかる。  
+![image](./image/30.png)  
+
+カスタムデータの欄にFilebeatのインストール手順を書けば、ＶＭデプロイ時に実行出来そう  
+カスタムデータの欄にどのように記載するか、Localeの場合は[こちら](https://cloudinit.readthedocs.io/en/latest/reference/modules.html#locale)  
+
+ただ、参考サイトにある  
+```
+#cloud-config
+timezone: Asia/Tokyo
+locale: ja_JP.utf8
+package_upgrade: true
+packages:
+– httpd
+runcmd:
+– sudo systemctl start httpd
+– sudo systemctl enable httpd
+```
+こちらを実行しても、httpdのインストールはうまくいかなかった。  
+
+ubuntuにはrenameパッケージがデフォルトで入っていないため
+```
+#cloud-config
+package_upgrade: true
+runcmd:
+  - sudo apt-get update
+  - sudo apt install rename
+```
+こちらを実行しても、renameのインストールはされなかった。  
+runcmdの[リファレンス](https://cloudinit.readthedocs.io/en/latest/reference/modules.html#runcmd)  
+
+書き方の問題なのかもしれないので、一応以下も試したが、ダメだった。  
+```
+#cloud-config
+package_upgrade: true
+runcmd:
+  - [sudo apt-get update]
+  - [sudo apt install rename]
+```
+
+package_update: trueかなとも思い、入れて試したけど、ダメだった。  
+
+### chatGPTのやり方に従ってみる  
+三回聞き直したら、以下の記載で出来た。（笑）  
+```
+#!/bin/bash
+
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.11.1-amd64.deb
+sudo dpkg -i filebeat-7.11.1-amd64.deb
+sudo systemctl enable filebeat
+```
+```
+#!/bin/bash
+
+curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.17.8-amd64.deb
+sudo dpkg -i filebeat-7.17.8-amd64.deb
+sudo systemctl enable filebeat
+```
+
+### ElasticsearchとKibanaを入れてみる  
+kibana  
+```
+#!/bin/bash
+
+curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-7.17.8-amd64.deb
+sudo dpkg -i kibana-7.17.8-amd64.deb
+sudo systemctl enable kibana
+```
+
+Elasticsearch  
+```
+#!/bin/bash
+
+curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.8-amd64.deb
+sudo dpkg -i elasticsearch-7.17.8-amd64.deb
+sudo systemctl enable elasticsearch
+```
+
+
+## 2. VM作成画面で2つのVMを立ち上げる方法  
+
+思いつくのは、  
+〇ElasticsearchとFilebeatが入ったストレージを用意しといて  
+　VM作成時に選択...  
+〇1度VMを作成した後、もう一度VM作成画面が出る  
+
+
+
 
